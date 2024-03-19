@@ -1,0 +1,37 @@
+.cardsxxxx{
+    background: hsl(270, 50%, 11%);
+    display: flex; /* Esto activa Flexbox para el contenedor */
+    flex-wrap: nowrap; /* Permite que los elementos hijos se pasen a la siguiente línea si no hay suficiente espacio */
+    flex-direction: column;
+    height: 100vh; /* O un valor que se ajuste al contenido o a tus necesidades */
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    border-radius: 20px;
+    padding-top: 200px;
+
+
+}
+
+.cajaxxx{
+padding-top: 15px;
+width: 200px;
+height: 200px;
+margin: 5px;
+flex: 1;
+flex-direction: column;
+display: flex;
+background: hsl(270, 50%, 15%);;
+box-shadow: 0 4px 10px 0 hsla(270, 30%, 7%, .2);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+
+.chat1, .chat2{
+    text-align: left;
+    padding-left: 20px;
+    color: white;
+    font-size: 12px;
+}

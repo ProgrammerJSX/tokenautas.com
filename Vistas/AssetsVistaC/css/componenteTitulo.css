@@ -1,0 +1,39 @@
+.main__crossing-container {
+    width: 88%;
+    background-color: #121619; /* Color de fondo predeterminado */
+    background-image: linear-gradient(
+        to right, 
+        #dbb88c 0%, /* Color más brillante al inicio */
+        #a47c51 20%, 
+        #b36424 40%, 
+        #4e2b0c 60%, 
+        #121619 80%, /* Color más oscuro al final */
+        #121619 100% /* Asegurando que el color predominante sea #121619 */
+    );
+    box-shadow: 0 6px 16px 0 hsla(270, 30%, 3%, .4);
+    border-radius: 8px;
+    padding: 2rem 3.6rem;
+    display: flex;
+    align-items: center;
+    transform: translate(-2rem, 2.4rem);
+    position: relative;
+    z-index: 11;
+    color: #dbb88c; /* Color de las letras */
+}
+
+  
+
+    @media (max-width: 399px) {
+        .main__crossing-container {
+            width: 110%;
+            margin-top: 75px;
+            margin-left: 85px;
+        }
+
+        .strip{
+            display: none;
+        }
+        .xvideos{
+            display: none;
+        }
+    }

@@ -1,0 +1,111 @@
+/*
+@font-face {
+    font-family: 'Astronomus';
+    src: url(./Fuentes/Astronomus.ttf);
+  }
+  */
+
+/* Estilos para modo escritorio */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background: rgb(30, 30, 30);
+
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Asegura que el .nav-links ocupe el ancho completo */
+    align-items: flex-start; /* Alinea los elementos li a la izquierda */
+    justify-content: space-between;
+    gap: 25px;
+    height: 100vh;
+    padding-bottom: 290px;
+    margin-bottom: 150px;
+    
+}
+
+@keyframes movimientoFondo {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 50% 25%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 75%; }
+    100% { background-position: 0% 0%; }
+}
+
+
+.nav-links li {
+    width: 100%; /* Asegura que los li ocupen el ancho completo del .nav-links */
+    padding: 15px 0; /* Agrega padding arriba y abajo para un mayor realce */
+    padding-left: 20px; /* Agrega una separación decente del lado izquierdo */
+    cursor: pointer;
+    text-align: left; /* Alinea el texto a la izquierda */
+    background-image: url('../imagenesAll/fondos/texturaMenu.webp');
+    background-size: 110% 110%; /* Hace el fondo un poco más grande para permitir un movimiento visible */
+    background-repeat: no-repeat;
+    animation: movimientoFondo 30s infinite linear;
+    background-size: cover; /* Asegúrate de que la textura cubra completamente el li */
+    border-radius: 4px; /* Bordes levemente redondeados para un efecto suave */
+    box-shadow: 
+        0 4px 8px rgba(0,0,0,0.25), /* Sombra externa para efecto de profundidad */
+        inset 0 2px 4px rgba(255,255,255,0.5), /* Sombra interna para el efecto de alto relieve */
+        inset 0 -2px 4px rgba(0,0,0,0.15); /* Sombra interna inferior para más profundidad */
+    margin: 5px; /* Asegura un pequeño margen entre los elementos */
+    transition: all 0.3s ease; /* Transición suave para efectos hover o click */
+    font-size: 15px;
+
+    /* Otros estilos que puedas tener */
+}
+
+
+.nav-links li:hover {
+    transform: translateY(-2px); /* Eleva el li al pasar el cursor */
+    box-shadow: 
+        0 6px 12px rgba(0,0,0,0.3), /* Sombra externa más intensa */
+        inset 0 3px 6px rgba(255,255,255,0.6), /* Sombra interna más intensa */
+        inset 0 -3px 6px rgba(0,0,0,0.2); /* Sombra interna inferior más intensa */
+}
+
+/* Agrega un efecto de interacción al hacer clic en el elemento */
+.nav-links li:active {
+    transform: translateY(1px); /* Simula presionar el botón hacia abajo */
+    box-shadow: 
+        0 2px 4px rgba(0,0,0,0.2), /* Reduce la sombra para simular que está presionado */
+        inset 0 1px 2px rgba(255,255,255,0.4), /* Ajusta la sombra interna superior */
+        inset 0 -1px 2px rgba(0,0,0,0.1); /* Ajusta la sombra interna inferior */
+}
+
+/* Ocultar íconos en modo escritorio */
+.nav-icon-container {
+    display: none; /* Esto oculta los íconos en modo escritorio */
+}
+
+.nav-links li{
+    color: white !important;
+}
+
+/* Estilos para tablet y móvil */
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .nav-icon-container {
+        display: flex; /* Mostrar íconos en modo móvil */
+        justify-content: center;
+        width: 100%;
+    }
+    .nav-icon-container span {
+        padding: 10px;
+    }
+    .nav-links {
+        display: none; /* Ocultar elementos <li> en modo móvil */
+    }
+}

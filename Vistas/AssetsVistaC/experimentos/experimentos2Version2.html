@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis Billeteras</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wallet-container">
+    <h1 class="title">MIS BILLETERAS</h1>
+    <div class="card-container">
+        <div class="card bitcoin">
+            <h2>Bitcoin</h2>
+            <p class="wallet-address">1JvBWgCgH36jDe9dTKkbrELyNzoPTE</p>
+            <button class="copy-btn">copiar</button>
+        </div>
+        <div class="card tether">
+            <h2>Tether</h2>
+            <p class="wallet-address">TyPH9rHvIe2kPySiCiofjmF7L9e2aD2</p>
+            <button class="copy-btn">copiar</button>
+        </div>
+    </div>
+
+    <style>
+      /* General styles */
+      body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e; /* Assuming a dark background */
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+.wallet-container {
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  flex: 1; /* Ensure the cards are flexible */
+  min-width: 250px; /* Minimum width of each card */
+}
+
+/* Responsive adjustments for different screen sizes */
+@media only screen and (max-width: 1024px) { /* Adjustments for tablets and smaller laptops */
+  .card-container {
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 600px) { /* Adjustments for mobile devices */
+  .card-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    margin: 0 0 20px;
+  }
+}
+
+/* Adding bright edges */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -2px; right: -2px; bottom: -2px; left: -2px;
+    background: linear-gradient(45deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1), transparent);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    z-index: 2;
+    position: relative;
+    margin: 0;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.wallet-address {
+    z-index: 2;
+    position: relative;
+    font-family: 'Courier New', monospace;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    word-wrap: break-word;
+}
+
+.copy-btn {
+    z-index: 2;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #3091f2;
+    color: white;
+}
+
+/* Styles for Bitcoin and Tether cards */
+.bitcoin {
+    background: url('path-to-your-bitcoin-image.jpg') no-repeat center center;
+    background-size: cover;
+    color: #f0b90b; /* A gold color for Bitcoin text for example, adjust as needed */
+}
+
+.tether {
+    background: url('path-to-your-tether-image.jpg') no-repeat center center;
+    background-size: cover;
+    color: #50af95; /* A green color for Tether text for example, adjust as needed */
+}
+
+/* Make the cards responsive */
+@media only screen and (max-width: 600px) {
+    .card-container {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+        margin: 0 0 20px;
+    }
+}
+
+/* Bright edge glow effect on hover */
+.card:hover::before {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* Adjustments for card content to make it more readable over the background image */
+.card h2, .card .wallet-address {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    display: inline-block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Make button visually distinct and responsive */
+.card .copy-btn {
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.card .copy-btn:hover {
+    background-color: #258cd1; /* A lighter blue for hover state */
+}
+
+/* Utility classes for further responsiveness */
+.card h2 {
+    font-size: calc(1rem + 1vw); /* Responsive font size */
+}
+
+.card .wallet-address {
+    font-size: calc(0.8rem + 0.5vw); /* Responsive font size */
+}
+
+
+    </style>
+</div>
+</body>
+</html>

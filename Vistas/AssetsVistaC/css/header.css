@@ -1,0 +1,93 @@
+.usuarioHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: aliceblue;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    
+    
+}
+
+.usuarioHeader h2{
+   font-size: 18px;
+   background-color: rgba(0, 0, 0, 0.874);
+   border-radius: 5px;
+    
+    
+}
+
+.usuarioHeader span{
+
+  border-radius: 5px;
+ font-size: 18px;
+ font-weight: bold;
+     
+ }
+
+
+@media (min-width: 990px){
+
+
+    
+    .usuarioHeader {
+        display: flex;
+        
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+        flex-wrap: wrap;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        z-index: 12;
+        transition: opacity 1s ease-in-out; /* Ajusta la duración de la transición según necesites */
+        opacity: 1; /* Inicia completamente visible */
+        /* No necesitas una imagen de fondo aquí ya que se establecerá con JS */
+    }
+    
+    .usuarioHeader.fade {
+        opacity: 0; /* Será completamente transparente cuando tenga la clase .fade */
+    }
+    
+    .usuarioHeader::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Cambia la opacidad aquí según necesites */
+        border-radius: 5px; /* Asegúrate de que coincida con el border-radius del contenedor para mantener la consistencia */
+        z-index: -1; /* Coloca el pseudo-elemento detrás del contenido del contenedor */
+    }
+    
+    
+    .usuarioHeader h2{
+       font-size: 18px;
+       background-color: rgba(0, 0, 0, 0.874);
+       border-radius: 5px;
+       padding: 20px;
+       margin: 20px;
+        
+    }
+    
+    .usuarioHeader span{
+      padding: 20px;
+      border-radius: 5px;
+     font-size: 18px;
+     font-weight: bold;
+     background-color: rgba(255, 255, 255, 0.487);
+     margin: 20PX;
+ 
+         
+     }
+     .usuarioHeader p{
+      
+     display: none;
+
+       
+        
+           
+       }
+}

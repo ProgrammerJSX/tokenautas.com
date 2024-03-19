@@ -1,0 +1,399 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+
+/*
+@font-face {
+  font-family: 'Astronomus';
+    src: url(./Fuentes/Astronomus.ttf);
+  }
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 500 !important;
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+}
+
+.flotante{
+    border: none !important;
+}
+
+
+button {
+    /* Propiedades comunes */
+
+   
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+  }
+
+
+  .tether button {
+    background-color: rgba(0, 0, 0, 0.514);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 175, 149, 0.2);
+    transition: all 0.2s ease-in-out;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, rgba(0,0,0,0.75), rgba(255,255,255,0.75));
+    text-transform: uppercase;
+  
+}
+
+.tether button:hover {
+    box-shadow: 0 0 15px rgba(0, 175, 149, 0.3);
+    border-image-source: linear-gradient(to right, rgba(0,0,0,0.9), rgba(255,255,255,0.9));
+}
+
+.bitcoin button {
+    background-color: rgba(0, 0, 0, 0.514);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(242, 169, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, rgba(0,0,0,0.75), rgba(255,255,255,0.75));
+    text-transform: uppercase;
+  
+}
+
+.bitcoin button:hover {
+    box-shadow: 0 0 15px rgba(242, 169, 0, 0.3);
+    border-image-source: linear-gradient(to right, rgba(0,0,0,0.9), rgba(255,255,255,0.9));
+}
+
+
+  
+  button:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+
+h1,h2,h3,h4,h5,h6{
+   
+    color: #DBB78A;
+}
+
+p,a,span{
+
+  }
+
+
+
+body {
+  
+    font-size: 1.2rem;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-y: scroll;
+    background: url(./imagenesAll/fondos/fondoPaginaWeb.jpeg);
+}
+
+.grid-container {
+    display: grid;
+    gap: 20px;
+    grid-template-areas:
+        "header"
+        "navbar"
+        "sidebar"
+        "main"
+        "footer"
+        "footerReal";
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 50px auto 1fr 100px;
+    z-index: 10;
+
+
+}
+
+.header {
+    grid-area: header;
+    z-index: 10;
+    background: hsl(270, 50%, 11%);
+
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Añade una sombra para un efecto de profundidad */
+
+}
+
+.navbar {
+    grid-area: navbar;
+    z-index: 10;
+    background: hsl(270, 50%, 11%);
+
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Añade una sombra para un efecto de profundidad */
+   
+}
+
+.sidebar {
+    grid-area: sidebar;
+    z-index: 10;
+    background: hsl(270, 50%, 11%);
+    color: white;
+    margin-top: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Añade una sombra para un efecto de profundidad */
+    border-radius: 20px;
+}
+
+.main {
+    grid-area: main;
+   display: flex;
+   z-index: 10;
+   background: hsl(270, 50%, 11%);
+   box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Añade una sombra para un efecto de profundidad */
+font-family: sans-serif;
+   margin-top: 350px;
+  
+}
+
+.mile{
+
+ padding: 20px;
+ height: auto;
+ font-size: 16px;
+}
+
+
+
+.footer {
+    grid-area: footer;
+    z-index: 10; /* Más bajo que el .grid-container::before para que la capa semi-transparente cubra el footer */
+    background-color: transparent; /* Se cambia el color de fondo a transparente */
+    height: auto;
+    
+}
+
+/* Media query para pantallas menores de 399px */
+@media (max-width: 399px) {
+    .grid-container {
+        grid-template-areas:
+            "header"
+            "navbar"
+            "main"
+            "sidebar"
+            "footer"
+            "footerReal";
+        grid-template-columns: 1fr;
+        /* Ajusta la última fila que corresponde a .footer para que sea más alta */
+        grid-template-rows: 200px 150px auto 1fr 500px 100px; /* ajusta el 150px según sea necesario para .footer */
+        
+    }
+    
+    .footer {
+        /* Aquí puedes poner cualquier otro estilo específico para el footer en pantallas pequeñas */
+       
+    }
+}
+
+
+
+
+.footerReal{
+    grid-area: footerReal;
+    z-index: 10;
+    background: rgb(30, 30, 30);
+   
+}
+
+/* Adding shadows and border radius */
+.grid-container > * {
+    box-shadow: 10px 6px 37px -13px rgba(51, 51, 51, 0.74);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Large screens */
+@media (min-width: 990px) {
+    .grid-container {
+        grid-template-areas:
+            "header header header"
+            "navbar main sidebar"
+            "navbar footer footer"
+            "footerReal footerReal footerReal";
+        grid-template-columns: 240px 1fr 300px;
+        grid-template-rows: 200px 1fr 420px;
+    }
+
+    .header, .navbar, .sidebar, .main, .footer {
+        padding: 20px; /* Added padding for a more spacious look */
+    }
+
+    .header {
+        grid-row: 1 / span 1;
+        display: flex;
+       
+
+        .logo{
+            position: absolute;
+            align-self: center;
+        
+            width: 98%;
+        }
+    }
+
+    .navbar {
+        grid-row: 2 / span 2;
+        
+    }
+
+    .sidebar {
+        grid-row: 2 / span 1;
+    }
+
+    .main {
+        grid-row: 2 / span 1;
+    }
+
+    .footer {
+        grid-row: 3 / span 1;
+
+    }
+    .footerReal {
+        grid-row: 5 / span 1;
+    }
+}
+
+
+
+/* Very large screens */
+@media (min-width: 1200px) {
+    body {
+        font-size: 1.5rem; /* Increase base font size for larger screens */
+    }
+}
+
+
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+
+
+  .grid-container::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right top, hsla(270, 50%, 8%, .5), hsla(270, 50%, 8%, .6) 20%, hsla(270, 50%, 8%, .1)), 
+                linear-gradient(to right bottom, hsl(270, 50%, 8%), transparent 66%), 
+                linear-gradient(to bottom, transparent, hsl(270, 50%, 8%) 56%), 
+                url(../FrontEnd-Tokenautas/imagenesAll/fondos/fondoPaginaWeb.jpeg) no-repeat;
+    background-size: cover; /* Asegura que la imagen de fondo cubra todo el contenedor */
+    animation: pulse 3s infinite;
+    z-index: 10;
+}
+
+
+  
+  /*.grid-container::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+          to bottom, 
+          #121619 0%, 
+          #121619 50%,
+          #b36424 60%, 
+          #dbb88c 70%, 
+          #4e2b0c 80%, 
+          #a47c51 90%, 
+          #c0bfc0 100%
+      );
+      animation: pulse 3s infinite;
+      z-index: 10;
+  }*/
+
+  
+  
+  @media (min-width: 1367px) {
+
+
+    .grid-container {
+        grid-template-areas:
+            "header header header"
+            "navbar main sidebar"
+            "navbar footer footer"
+            "footerReal footerReal footerReal";
+        grid-template-columns: 240px 1fr 300px;
+        grid-template-rows: 200px 1fr 420px;
+    }
+
+    .header, .navbar, .sidebar, .main, .footer {
+        padding: 20px; /* Added padding for a more spacious look */
+    }
+
+    .header {
+        grid-row: 1 / span 1;
+        display: flex;
+       
+
+        .logo{
+            position: absolute;
+            align-self: center;
+        
+            width: 98%;
+        }
+    }
+
+    .navbar {
+        grid-row: 2 / span 4;
+        
+    }
+
+    .sidebar {
+        grid-row: 2 / span 1;
+    }
+
+    .main {
+        grid-row: 2 / span 1;
+    }
+
+    .footer {
+        grid-row: 3 / span 1;
+
+    }
+    .footerReal {
+        grid-row: 5 / span 1;
+    }
+}
