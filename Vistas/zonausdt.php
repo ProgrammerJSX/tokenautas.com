@@ -219,7 +219,8 @@ $imagenBTC = isset($imagenesUsuario['imagenbtc']) ? $imagenesUsuario['imagenbtc'
     </div>
     <div class="main__list-content-wrap">
       <p class="main__list-content"><?php echo $valorWalletUSDT; ?></p>
-      <p class="main__list-sub">Tu billetera USDT</p>
+      <p class="main__list-sub" style="font-size: 20px; padding-top:10px">Tu billetera USDT</p>
+
     </div>
 </li>
 
@@ -292,19 +293,19 @@ function copiarAlPortapapeles(elemento) {
       }
     </style>
     <!-- DISCOVER -->
-    <div class="main__discover" style="">
+    <div class="main__discover" style="height: 65vh">
 
       <div class="main__discover-heading-container">
-        <h3 class="main__discover-heading ss-heading" style="padding-bottom:20px">DESCARGO DE RESPONSABILIDAD: ANTES DE RECIBIR TUS BITCOIN NUNCA DEBES OLVIDAR TENER EN CUENTA LAS SIGUIENTES RECOMENDACIONES:</h3>
+        <h3 class="main__discover-heading ss-heading" style="padding-bottom:20px">DESCARGO DE RESPONSABILIDAD DEPOSITOS EN USDT DE LA RED TRC20: ANTES DE RECIBIR TUS BITCOIN NUNCA DEBES OLVIDAR TENER EN CUENTA LAS SIGUIENTES RECOMENDACIONES:</h3>
         <a href="#" class="ss-show"></a>
       </div>
    <div class="disclamerBitcoin1">
    <div class="cajaDisclamer1">
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum earum quae eligendi praesentium quis voluptates iusto quibusdam, voluptas impedit tempora non? Quas, harum. Facilis provident ullam nobis. Libero, earum nam!</p>
+   <p style="color: black; font-size: 16px; padding:30px">Por favor, tenga en cuenta que los depósitos realizados en USDT de la red TRC20 deben ser realizados con precaución y entendimiento pleno de los riesgos asociados. Activos Digitales no se hace responsable de pérdidas, retrasos o cualquier otro inconveniente causado por depósitos en USDT de la red TRC20.
+
+Recomendamos encarecidamente verificar la dirección del monedero y confirmar la compatibilidad con la red TRC20 antes de realizar cualquier depósito. Además, le recomendamos que se informe sobre los procedimientos de seguridad adecuados para el almacenamiento y la gestión de criptomonedas.</p>
    </div>
-   <div class="cajaDisclamer1">
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum earum quae eligendi praesentium quis voluptates iusto quibusdam, voluptas impedit tempora non? Quas, harum. Facilis provident ullam nobis. Libero, earum nam!</p>
-   </div>
+ 
    </div>
 
     </div>

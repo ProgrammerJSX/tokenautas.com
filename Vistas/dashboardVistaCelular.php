@@ -170,8 +170,8 @@ function mostrarSeccion(seccionId) {
         &#9776;
     </div>
     <div class="enlaces-menu" id="enlacesMenu">
-        <a href="./Vistas/dashboardVistaCelular.php" style="color: white !important;">Inicio</a>
-        <a href="./Vistas/dashboardVistaCelular.php" style="color: white !important;">Retirar</a>
+        <a href="./dashboardVistaCelular.php" style="color: white !important;">Inicio</a>
+        <a href="./retirarVistaCelular.php" style="color: white !important;">Retirar</a>
         <a href="./Vistas/depositar.php" style="color: white !important;">Depositar</a>
         <a href="./Vistas/misbancos.php" style="color: white !important;">Mis Bancos</a>
         <a href="./Vistas/registrarBancos.php" style="color: white !important;">Registrar Bancos</a>
@@ -288,16 +288,21 @@ function mostrarSeccion(seccionId) {
     <article class="main">
 
         <div class="card-container">
+        <a href="./zonabitcoinVistaCelular.php">
             <div class="card bitcoin">
+        
                 <h2>Bitcoin</h2>
-                <p class="wallet-address"><?php echo $valorWalletBTC; ?></p>
-               <a href=""><button class="copy-btn">Abrir</button></a> 
+                <p class="wallet-address" style="opacity: 0;"><?php echo $valorWalletBTC; ?></p>
+               <a href="./zonabitcoinVistaCelular.php" style="opacity: 0;"><button class="copy-btn">Abrir</button></a> 
             </div>
+            </a>
+            <a href="./zonausdtVistaCelular.php">
             <div class="card tether">
                 <h2>Tether</h2>
-                <p class="wallet-address"><?php echo $valorWalletUSDT; ?></p>
-                <a href=""><button class="copy-btn">Abrir</button></a> 
+                <p class="wallet-address" style="opacity: 0;"><?php echo $valorWalletUSDT; ?></p>
+                <a href="" style="opacity: 0;"><button class="copy-btn">Abrir</button></a> 
             </div>
+            </a>
         </div>
 
     </article>
@@ -347,12 +352,14 @@ function mostrarSeccion(seccionId) {
             
         <div class="cardsxxxx" style="padding-bottom: 200px; position: relative;">
         
+        <a href="./zonachaturbateVistaCelular.php">
         <div class="cajaxxx">
             <div class="cajachaturb chat1">Chaturbate</div>
             <div class="cajachaturb chat2">www.chaturbate.com</div>
             <div class="cajachaturb chat3"><img src="./AssetsVistaC/imagenesAll/marcas/chaturbate.png" width="100" alt="">
             
             </div>
+            </a>
 
             
 

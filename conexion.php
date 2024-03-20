@@ -2,6 +2,8 @@
 
 
 
+
+
 $host = 'localhost';
 $db = 'u491711087_mibasededatos';
 $user = 'u491711087_johan';
@@ -47,9 +49,8 @@ try {
 }
 
 
+
 */
-
-
 
 
 
