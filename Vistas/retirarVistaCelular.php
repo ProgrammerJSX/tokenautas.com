@@ -235,13 +235,13 @@ function mostrarSeccion(seccionId) {
         &#9776;
     </div>
     <div class="enlaces-menu" id="enlacesMenu">
-        <a href="./Vistas/dashboardVistaCelular.php" style="color: white !important;">Inicio</a>
-        <a href="./Vistas/dashboardVistaCelular.php" style="color: white !important;">Retirar</a>
-        <a href="./Vistas/depositar.php" style="color: white !important;">Depositar</a>
-        <a href="./Vistas/misbancos.php" style="color: white !important;">Mis Bancos</a>
-        <a href="./Vistas/registrarBancos.php" style="color: white !important;">Registrar Bancos</a>
-        <a href="./Vistas/historialderetiro.php" style="color: white !important;">Historial de Retiro</a>
-        <a href="./logout.php">Salir</a>
+        <a href="./dashboardVistaCelular.php" style="color: white !important;">Inicio</a>
+        <a href="./retirarVistaCelular.php" style="color: white !important;">Retirar</a>
+        <a href="./depositarVistaCelular.php" style="color: white !important;">Depositar</a>
+        <a href="./misbancosVistaCelular.php" style="color: white !important;">Mis Bancos</a>
+        <a href="./registrarBancosVistaCelular.php" style="color: white !important;">Registrar Bancos</a>
+        <a href="./historialderetiroVistaCelular.php" style="color: white !important;">Historial de Retiro</a>
+        <a href="./logout.php" style="color: white !important;">Salir</a>
     </div>
 </div>
 
@@ -396,7 +396,7 @@ function mostrarSeccion(seccionId) {
                 }
             </style>
     
-            <div class="main__crossing-container">
+            <div class="main__crossing-container" style="z-index: 664;">
                 <div class="main__crossing-current">
                     <p class="main__crossing-upper" style="font-size: 13px;">
                         PAGO EN MENOS DE 24 HORAS

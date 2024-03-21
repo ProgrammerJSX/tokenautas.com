@@ -28,9 +28,7 @@ $userId = $_SESSION['user_id']; // Asegúrate de tener la sesión iniciada y el 
 $miBilletera1 = obtenerMiBilletera1($pdo, $userId);
 $miBilletera1 = $miBilletera1 === null ? '0.00' : $miBilletera1;
 
-// Usar la función obtenerMiBilletera1 para obtener el valor de la billetera del usuario actual
-$userId = $_SESSION['user_id']; // Asegúrate de tener la sesión iniciada y el user_id disponible
-$miBilletera1 = obtenerMiBilletera1($pdo, $userId);
+
 
 
 // Obtiene la información del usuario usando las funciones
@@ -70,6 +68,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['alias'], $_POST['token
         echo "Error: " . $stmt->error;
     }
 }
+
+
+
+require_once __DIR__ . '/../Funciones/mostrarBancosUsuario.php';
+
+// Recupera el ID del usuario de la sesión
+$userId = $_SESSION['user_id'];
+
+// Llamamos a la función para obtener la salida de los bancos
+$htmlBancos = mostrarBancosUsuario($pdo, $userId);
+
+// Ahora puedes usar $htmlBancos donde necesites mostrar los bancos.
 ?>
 
 
@@ -169,7 +179,7 @@ function mostrarSeccion(seccionId) {
     <div class="boton-hamburguesa" id="botonMenu" style="background-color: #eee; width:50px; position: absolute; top:20px; border-radius: 5px; ">
         &#9776;
     </div>
-    <div class="enlaces-menu" id="enlacesMenu" style="z-index: ;">
+    <div class="enlaces-menu" id="enlacesMenu">
         <a href="./dashboardVistaCelular.php" style="color: white !important;">Inicio</a>
         <a href="./retirarVistaCelular.php" style="color: white !important;">Retirar</a>
         <a href="./depositarVistaCelular.php" style="color: white !important;">Depositar</a>
@@ -256,11 +266,11 @@ function mostrarSeccion(seccionId) {
                     <p class="mile email-usuario"><?php echo $_SESSION['username']; ?></p>
                 </span>
                 <span class="usuarioNombre cantidad-usuario">$<?php echo $miBilletera1 ?? '0.00'; ?></span>
-                <span class="usuarioNombre moneda-usuario">COP: Pesos Colombianos</span>
+                <span class="usuarioNombre moneda-usuario" style=" padding-bottom: 20px;">COP: Pesos Colombianos</span>
             </div>
             
             <!-- Aquí tus otros divs permanecen sin cambios, solo asegúrate de añadir las nuevas clases donde sea necesario -->
-            
+            <div class="ocultador" style="display: none;">
             <div class="gradient-text detailUser">
                 
                  <span class="usuarioNombre miestudio">MI ESTUDIO</span>
@@ -271,8 +281,8 @@ function mostrarSeccion(seccionId) {
                     <span class="usuarioNombre" style="display: flex; justify-content: center; align-items: center; gap: 10px; padding-bottom: 20px;"><img src="./AssetsVistaC/imagenesAll/logos/spaceModels.png" width="50" alt=""> <span style="font-size: 16px;">Space Models</span></span>
                 </div>
 
-                
-              
+                </div>
+           
 
                  
         
@@ -285,24 +295,19 @@ function mostrarSeccion(seccionId) {
 
 
       
-    <article class="main">
+    <article class="main" style="display:none">
 
         <div class="card-container">
-        <a href="./zonabitcoinVistaCelular.php">
             <div class="card bitcoin">
-        
                 <h2>Bitcoin</h2>
-                <p class="wallet-address" style="opacity: 0;"><?php echo $valorWalletBTC; ?></p>
-               <a href="./zonabitcoinVistaCelular.php" style="opacity: 0;"><button class="copy-btn">Abrir</button></a> 
+                <p class="wallet-address"><?php echo $valorWalletBTC; ?></p>
+               <a href=""><button class="copy-btn">Abrir</button></a> 
             </div>
-            </a>
-            <a href="./zonausdtVistaCelular.php">
             <div class="card tether">
                 <h2>Tether</h2>
-                <p class="wallet-address" style="opacity: 0;"><?php echo $valorWalletUSDT; ?></p>
-                <a href="" style="opacity: 0;"><button class="copy-btn">Abrir</button></a> 
+                <p class="wallet-address"><?php echo $valorWalletUSDT; ?></p>
+                <a href=""><button class="copy-btn">Abrir</button></a> 
             </div>
-            </a>
         </div>
 
     </article>
@@ -339,10 +344,10 @@ function mostrarSeccion(seccionId) {
             <div class="main__crossing-container">
                 <div class="main__crossing-current">
                     <p class="main__crossing-upper" style="font-size: 13px;">
-                        PAGO EN MENOS DE 24 HORAS
+                        TUS BANCOS REGISTRADOS
                     </p>
                     <h3 class="main__crossing-heading" style="font-size:25px; font-weight: bold;">
-                        VENDE TUS TOKENS
+                        MIS BANCOS
                     </h3>
                 </div>
             </div>
@@ -350,42 +355,136 @@ function mostrarSeccion(seccionId) {
 
         
             
-        <div class="cardsxxxx" style="padding-bottom: 200px; position: relative;">
+        <div class="cardsxxxx" style="padding-bottom: 200px; position: relative; max-width:450px ">
         
-        <a href="./zonachaturbateVistaCelular.php">
-        <div class="cajaxxx">
-            <div class="cajachaturb chat1">Chaturbate</div>
-            <div class="cajachaturb chat2">www.chaturbate.com</div>
-            <div class="cajachaturb chat3"><img src="./AssetsVistaC/imagenesAll/marcas/chaturbate.png" width="100" alt="">
-            
+
+
+
+            <!-- DISCOVER -->
+            <div class="main__discover" style="height:90vh !important">
+
+         
+
+            <ul class="main__discover-places">
+              <style>
+              .main__discover--responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Este es el espacio entre las tarjetas */
+  justify-content: center; /* Centra las tarjetas en el contenedor */
+  padding: 20px; /* Un poco de espacio alrededor del contenedor */
+}
+
+.banco-registrado--responsive {
+  background-color: #fff; /* Fondo blanco para las tarjetas */
+  border-radius: 8px; /* Bordes redondeados para suavidad */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+  padding: 20px; /* Espacio dentro de las tarjetas */
+  width: 300px; /* Ancho fijo para todas las tarjetas */
+  box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+  margin-bottom: 20px; /* Espacio adicional en la parte inferior si se apilan */
+}
+
+.banco-registrado--responsive p {
+  margin: 5px 0; /* Espacio vertical entre párrafos */
+  color: #333; /* Color oscuro para el texto */
+}
+
+            </style>
+
+
+
+<style>
+/* Estilos personalizados para la sección de bancos */
+.discover-banks-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+  padding: 10px;
+}
+
+.bank-card {
+  background: #2c3e50;
+  color: #ecf0f1;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  min-width: 250px;
+  max-width: calc(33% - 20px);
+  box-sizing: border-box;
+}
+
+.bank-card p {
+  margin: 5px 0;
+}
+
+/* Estilos personalizados para la barra de desplazamiento de la sección de bancos */
+.discover-banks-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.discover-banks-container::-webkit-scrollbar-track {
+  background: #34495e;
+  border-radius: 10px;
+}
+
+.discover-banks-container::-webkit-scrollbar-thumb {
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  border: 3px solid #34495e;
+}
+
+.discover-banks-container::-webkit-scrollbar-thumb:hover {
+  background: #bdc3c7;
+}
+
+/* Estilos para Firefox */
+.discover-banks-container {
+  scrollbar-width: thin;
+  scrollbar-color: #ecf0f1 #34495e;
+}
+
+
+
+
+</style>
+
+
+
+            <!-- DISCOVER -->
+            <div class="main__discover" style="display: flex;  justify-content: center; align-items:center">
+
+            <div class="discover-banks-container" style="display: flex; justify-content: center; align-items:center">
+  <?php echo $htmlBancos; ?>
+</div>
+
+
+
+
             </div>
-            </a>
+              </ul>
 
-            
-
-
-        </div>
-        <div class="cajaxxx">
-            <div class="cajachaturb chat1">StripChat</div>
-            <div class="cajachaturb chat2">www.stripchat.com</div>
-            <div class="cajachaturb chat3"><img src="./AssetsVistaC/imagenesAll/marcas/stripchat.png" width="100" alt=""></div>
-
-            
+            <!-- FOOTER -->
 
 
-        </div>
-        <div class="cajaxxx">
-            <div class="cajachaturb chat1">XvideosCams</div>
-            <div class="cajachaturb chat2">www.xvideoscams.com</div>
-            <div class="cajachaturb chat3"><img src="./AssetsVistaC/imagenesAll/marcas/xvideosCams.png" width="100" alt=""></div>
-
-            
 
 
-        </div>
-        <div><a href="./depositarVistaCelular.php"><button class="buttonInicio">ver mas</button></a></div>
-        <span style="padding-top: 20px;">...</span>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
     
@@ -476,6 +575,71 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 </script>
-  
+<script>
+      // Deshabilitar el zoom en el sitio web
+document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && (event.key === '+' || event.key === '-')) {
+        event.preventDefault(); // Evita el zoom con Ctrl + / Ctrl -
+    }
+});
+
+// También puedes agregar esto en tu hoja de estilos CSS:
+// html, body {
+//     zoom: reset; /* Esto funciona en Chrome */
+// }
+
+
+// Mantener la posición del sitio web al girar el celular
+window.addEventListener('resize', function () {
+    // Obtén la posición actual de desplazamiento vertical (scroll) de la página
+    const currentPosition = window.scrollY;
+
+    // Restaura la posición de desplazamiento vertical después de que se complete la rotación
+    window.scrollTo(0, currentPosition);
+});
+
+
+//funcion menu hamburguesa
+/* Update the toggleMenu function */
+function toggleMenu() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('sidebar-expanded');
+
+  const iconTexts = document.querySelectorAll('.sidebar__icon-text');
+  iconTexts.forEach(text => {
+    text.style.display = (text.style.display === 'none' ? 'block' : 'none');
+  });
+}
+
+    </script>
+
+     <!-- JavaScript para cambiar el color del botón y generar retiro -->
+  <script>
+    function cambiarBotonRetirar(select) {
+      if (select.value !== "") {
+        document.getElementById('boton_retirar').style.backgroundColor = 'green';
+      } else {
+        document.getElementById('boton_retirar').style.backgroundColor = 'red';
+      }
+    }
+
+    function generarRetiro() {
+      var bancoSeleccionado = document.getElementById('banco_seleccionado').value;
+      var cantidadRetirar = document.getElementById('cantidad_retirar').value;
+      if (bancoSeleccionado === "" || cantidadRetirar === "") {
+        alert("Por favor, selecciona un banco y especifica la cantidad a retirar.");
+        return;
+      }
+      var identificador = 'TKT-' + Math.random().toString(36).substr(2, 9) + '#' + Math.random().toString(36).substr(2, 9);
+      document.getElementById('identificador_transaccion').value = identificador;
+
+      // Muestra un alerta con el identificador único
+      alert("Tu orden fue generada con el ticket#: " + identificador);
+
+      // Envía el formulario
+      document.getElementById('formRetiro').submit();
+    }
+  </script>
+
 </body>
 </html>

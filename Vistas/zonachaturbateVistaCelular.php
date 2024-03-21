@@ -279,7 +279,8 @@ function copiarAlPortapapeles(elemento) {
 <span class="dots">...</span>
 
 <p style="color: #333; padding:20px" class="extra" id="hideText">
-Recomendamos encarecidamente verificar la cantidad de tokens a transferir, gracias.</p>
+Ingresa a Nuestro perfil en Chaturbate.com y Coloca el correo con el cual te registraste en tokenautas.com , presiona "Enviar Propina". ¡Listo! ¡Lo haz logrado! <img src="../chaturbateTkn.png" width="380" alt=""></p>
+
 
 </p>
 

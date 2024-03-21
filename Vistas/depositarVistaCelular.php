@@ -169,7 +169,7 @@ function mostrarSeccion(seccionId) {
     <div class="boton-hamburguesa" id="botonMenu" style="background-color: #eee; width:50px; position: absolute; top:20px; border-radius: 5px; ">
         &#9776;
     </div>
-    <div class="enlaces-menu" id="enlacesMenu" style="z-index: ;">
+    <div class="enlaces-menu" id="enlacesMenu">
         <a href="./dashboardVistaCelular.php" style="color: white !important;">Inicio</a>
         <a href="./retirarVistaCelular.php" style="color: white !important;">Retirar</a>
         <a href="./depositarVistaCelular.php" style="color: white !important;">Depositar</a>
@@ -336,22 +336,10 @@ function mostrarSeccion(seccionId) {
                 }
             </style>
     
-            <div class="main__crossing-container">
-                <div class="main__crossing-current">
-                    <p class="main__crossing-upper" style="font-size: 13px;">
-                        PAGO EN MENOS DE 24 HORAS
-                    </p>
-                    <h3 class="main__crossing-heading" style="font-size:25px; font-weight: bold;">
-                        VENDE TUS TOKENS
-                    </h3>
-                </div>
-            </div>
-        </div>
 
-        
             
-        <div class="cardsxxxx" style="padding-bottom: 200px; position: relative;">
-        
+        <div class="cardsxxxx" style="padding-bottom: 250px; position: relative;">
+    
         <a href="./zonachaturbateVistaCelular.php">
         <div class="cajaxxx">
             <div class="cajachaturb chat1">Chaturbate</div>
@@ -383,9 +371,29 @@ function mostrarSeccion(seccionId) {
 
 
         </div>
-        <div><a href="./depositarVistaCelular.php"><button class="buttonInicio">ver mas</button></a></div>
-        <span style="padding-top: 20px;">...</span>
+
+        <div class="cajaxxx">
+            <div class="cajachaturb chat1">CamSoda</div>
+            <div class="cajachaturb chat2">www.camsoda.com</div>
+            <div class="cajachaturb chat3"><img src="./AssetsVistaC/imagenesAll/marcas/wc camsoda-07.png" width="100" alt=""></div>
+
+            
+
+
         </div>
+       
+        <div class="cajaxxx">
+            <div class="cajachaturb chat1">Live Jasmin</div>
+            <div class="cajachaturb chat2">www.livejasmin.com</div>
+            <div class="cajachaturb chat3"><img src="./AssetsVistaC/imagenesAll/marcas/wc live jasmin-03.png" width="100" alt=""></div>
+
+            
+
+
+        </div>
+     
+       
+       
 
     </div>
     

@@ -24,13 +24,17 @@ require_once __DIR__ . '/../Funciones/verWalletUSDT.php';
 require_once __DIR__ . '/../Funciones/obtenerMiBilletera1.php';
 
 // Recupera el ID del usuario de la sesión
-$userId = $_SESSION['user_id']; // Asegúrate de tener la sesión iniciada y el user_id disponible
-$miBilletera1 = obtenerMiBilletera1($pdo, $userId);
-$miBilletera1 = $miBilletera1 === null ? '0.00' : $miBilletera1;
+$userId = $_SESSION['user_id'] ?? null; // Usa el operador de fusión null para manejar la ausencia de user_id
+if (!$userId) {
+  // Redirige, muestra un error, o termina el script
+  echo "Error: Sesión no válida.";
+  exit;
+}
 
-// Usar la función obtenerMiBilletera1 para obtener el valor de la billetera del usuario actual
-$userId = $_SESSION['user_id']; // Asegúrate de tener la sesión iniciada y el user_id disponible
-$miBilletera1 = obtenerMiBilletera1($pdo, $userId);
+$miBilletera1 = obtenerMiBilletera1($pdo, $userId) ?? '0.00';
+
+
+
 
 
 // Obtiene la información del usuario usando las funciones
@@ -71,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['alias'], $_POST['token
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -169,7 +174,7 @@ function mostrarSeccion(seccionId) {
     <div class="boton-hamburguesa" id="botonMenu" style="background-color: #eee; width:50px; position: absolute; top:20px; border-radius: 5px; ">
         &#9776;
     </div>
-    <div class="enlaces-menu" id="enlacesMenu" style="z-index: ;">
+    <div class="enlaces-menu" id="enlacesMenu">
         <a href="./dashboardVistaCelular.php" style="color: white !important;">Inicio</a>
         <a href="./retirarVistaCelular.php" style="color: white !important;">Retirar</a>
         <a href="./depositarVistaCelular.php" style="color: white !important;">Depositar</a>
@@ -256,11 +261,11 @@ function mostrarSeccion(seccionId) {
                     <p class="mile email-usuario"><?php echo $_SESSION['username']; ?></p>
                 </span>
                 <span class="usuarioNombre cantidad-usuario">$<?php echo $miBilletera1 ?? '0.00'; ?></span>
-                <span class="usuarioNombre moneda-usuario">COP: Pesos Colombianos</span>
+                <span class="usuarioNombre moneda-usuario" style=" padding-bottom: 20px;">COP: Pesos Colombianos</span>
             </div>
             
             <!-- Aquí tus otros divs permanecen sin cambios, solo asegúrate de añadir las nuevas clases donde sea necesario -->
-            
+            <div class="ocultador" style="display: none;">
             <div class="gradient-text detailUser">
                 
                  <span class="usuarioNombre miestudio">MI ESTUDIO</span>
@@ -271,8 +276,8 @@ function mostrarSeccion(seccionId) {
                     <span class="usuarioNombre" style="display: flex; justify-content: center; align-items: center; gap: 10px; padding-bottom: 20px;"><img src="./AssetsVistaC/imagenesAll/logos/spaceModels.png" width="50" alt=""> <span style="font-size: 16px;">Space Models</span></span>
                 </div>
 
-                
-              
+                </div>
+           
 
                  
         
@@ -285,24 +290,19 @@ function mostrarSeccion(seccionId) {
 
 
       
-    <article class="main">
+    <article class="main" style="display:none">
 
         <div class="card-container">
-        <a href="./zonabitcoinVistaCelular.php">
             <div class="card bitcoin">
-        
                 <h2>Bitcoin</h2>
-                <p class="wallet-address" style="opacity: 0;"><?php echo $valorWalletBTC; ?></p>
-               <a href="./zonabitcoinVistaCelular.php" style="opacity: 0;"><button class="copy-btn">Abrir</button></a> 
+                <p class="wallet-address"><?php echo $valorWalletBTC; ?></p>
+               <a href=""><button class="copy-btn">Abrir</button></a> 
             </div>
-            </a>
-            <a href="./zonausdtVistaCelular.php">
             <div class="card tether">
                 <h2>Tether</h2>
-                <p class="wallet-address" style="opacity: 0;"><?php echo $valorWalletUSDT; ?></p>
-                <a href="" style="opacity: 0;"><button class="copy-btn">Abrir</button></a> 
+                <p class="wallet-address"><?php echo $valorWalletUSDT; ?></p>
+                <a href=""><button class="copy-btn">Abrir</button></a> 
             </div>
-            </a>
         </div>
 
     </article>
@@ -339,10 +339,10 @@ function mostrarSeccion(seccionId) {
             <div class="main__crossing-container">
                 <div class="main__crossing-current">
                     <p class="main__crossing-upper" style="font-size: 13px;">
-                        PAGO EN MENOS DE 24 HORAS
+                        AGREGA LOS BANCOS DONDE TE PAGAREMOS
                     </p>
                     <h3 class="main__crossing-heading" style="font-size:25px; font-weight: bold;">
-                        VENDE TUS TOKENS
+                        REGISTRAR BANCOS
                     </h3>
                 </div>
             </div>
@@ -350,42 +350,112 @@ function mostrarSeccion(seccionId) {
 
         
             
-        <div class="cardsxxxx" style="padding-bottom: 200px; position: relative;">
+        <div class="cardsxxxx" style="padding-bottom: 200px; height:60vh !important; position: relative; max-width:450px ">
         
-        <a href="./zonachaturbateVistaCelular.php">
-        <div class="cajaxxx">
-            <div class="cajachaturb chat1">Chaturbate</div>
-            <div class="cajachaturb chat2">www.chaturbate.com</div>
-            <div class="cajachaturb chat3"><img src="./AssetsVistaC/imagenesAll/marcas/chaturbate.png" width="100" alt="">
+
+
+            <!-- DISCOVER -->
+            <div class="main__discover">
+
             
+
+<style>
+  /* Estilos para la sección de registro de bancos */
+.discover-form-container {
+  padding: 20px !important;
+  background-color: #2c3e50 !important;
+  border-radius: 10px !important;
+  color: #ecf0f1 !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+ 
+  
+}
+
+.discover-form-container h3 {
+  margin-bottom: 20px !important;
+}
+
+.discover-form-input {
+  width: calc(100% - 24px) !important;
+  padding: 12px !important;
+  margin: 6px 0 !important;
+  border-radius: 5px !important;
+  border: 1px solid #34495e !important;
+  background-color: #3a506b !important;
+  color: #ecf0f1 !important;
+}
+
+.discover-form-button {
+  width: calc(100% - 24px) !important;
+  padding: 15px !important;
+  margin: 12px 0 !important;
+  border-radius: 5px !important;
+  border: none !important;
+  background-color: #e1e1e1 !important;
+  color: #2c3e50 !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+}
+
+.discover-form-button:hover {
+  background-color: #d1d1d1 !important;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+   <!-- DISCOVER -->
+<div class="main__discover" style="height:auto">
+  <div class="main__discover-heading-container">
+    <h3 class="main__discover-heading ss-heading">Añadir:</h3>
+    <a href="#" class="ss-show"></a>
+  </div>
+  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <input type="hidden" name="token" value="<?php echo $_SESSION['form_token']; ?>">
+    <input class="discover-form-input" type="text" name="alias" required placeholder="Alias">
+    <input class="discover-form-input" type="text" name="nombre_banco" required placeholder="Nombre del banco">
+    <input class="discover-form-input" type="text" name="numeroCuenta" required placeholder="Número de Cuenta">
+    <input class="discover-form-input" type="text" name="tipo_cuenta" required placeholder="Cuenta: ¿Ahorro? o ¿Corriente?">
+    <input class="discover-form-input" type="text" name="titular_cuenta" required placeholder="Titular de la cuenta">
+    <input class="discover-form-input" type="text" name="cedula_titular" required placeholder="Cédula del titular">
+    <button class="discover-form-button" type="submit" style="background-color: #007bff !important; color: white !important; font-size: 12px !important" >Registrar Banco</button>
+  </form>
+</div>
+
+            
+            
+
             </div>
-            </a>
 
-            
-
-
-        </div>
-        <div class="cajaxxx">
-            <div class="cajachaturb chat1">StripChat</div>
-            <div class="cajachaturb chat2">www.stripchat.com</div>
-            <div class="cajachaturb chat3"><img src="./AssetsVistaC/imagenesAll/marcas/stripchat.png" width="100" alt=""></div>
-
-            
+            <!-- FOOTER -->
 
 
-        </div>
-        <div class="cajaxxx">
-            <div class="cajachaturb chat1">XvideosCams</div>
-            <div class="cajachaturb chat2">www.xvideoscams.com</div>
-            <div class="cajachaturb chat3"><img src="./AssetsVistaC/imagenesAll/marcas/xvideosCams.png" width="100" alt=""></div>
-
-            
 
 
-        </div>
-        <div><a href="./depositarVistaCelular.php"><button class="buttonInicio">ver mas</button></a></div>
-        <span style="padding-top: 20px;">...</span>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
     
@@ -476,6 +546,71 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 </script>
-  
+<script>
+      // Deshabilitar el zoom en el sitio web
+document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && (event.key === '+' || event.key === '-')) {
+        event.preventDefault(); // Evita el zoom con Ctrl + / Ctrl -
+    }
+});
+
+// También puedes agregar esto en tu hoja de estilos CSS:
+// html, body {
+//     zoom: reset; /* Esto funciona en Chrome */
+// }
+
+
+// Mantener la posición del sitio web al girar el celular
+window.addEventListener('resize', function () {
+    // Obtén la posición actual de desplazamiento vertical (scroll) de la página
+    const currentPosition = window.scrollY;
+
+    // Restaura la posición de desplazamiento vertical después de que se complete la rotación
+    window.scrollTo(0, currentPosition);
+});
+
+
+//funcion menu hamburguesa
+/* Update the toggleMenu function */
+function toggleMenu() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('sidebar-expanded');
+
+  const iconTexts = document.querySelectorAll('.sidebar__icon-text');
+  iconTexts.forEach(text => {
+    text.style.display = (text.style.display === 'none' ? 'block' : 'none');
+  });
+}
+
+    </script>
+
+     <!-- JavaScript para cambiar el color del botón y generar retiro -->
+  <script>
+    function cambiarBotonRetirar(select) {
+      if (select.value !== "") {
+        document.getElementById('boton_retirar').style.backgroundColor = 'green';
+      } else {
+        document.getElementById('boton_retirar').style.backgroundColor = 'red';
+      }
+    }
+
+    function generarRetiro() {
+      var bancoSeleccionado = document.getElementById('banco_seleccionado').value;
+      var cantidadRetirar = document.getElementById('cantidad_retirar').value;
+      if (bancoSeleccionado === "" || cantidadRetirar === "") {
+        alert("Por favor, selecciona un banco y especifica la cantidad a retirar.");
+        return;
+      }
+      var identificador = 'TKT-' + Math.random().toString(36).substr(2, 9) + '#' + Math.random().toString(36).substr(2, 9);
+      document.getElementById('identificador_transaccion').value = identificador;
+
+      // Muestra un alerta con el identificador único
+      alert("Tu orden fue generada con el ticket#: " + identificador);
+
+      // Envía el formulario
+      document.getElementById('formRetiro').submit();
+    }
+  </script>
+
 </body>
 </html>
