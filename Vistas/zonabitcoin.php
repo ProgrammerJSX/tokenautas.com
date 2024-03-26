@@ -90,13 +90,33 @@ $htmlBancos = mostrarBancosUsuario($pdo, $userId);
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tokenautas</title>
+    <title>Tokenautas BTC</title>
+    <link rel="icon" href="../cohete06.png" type="image/png">
     <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
 
     <div class="dash">
+    <style>
+      .header__heading, 
+.header__heading * { /* Selecciona el h1 y cualquier elemento dentro de él */
+    pointer-events: none !important; /* Impide cualquier interacción con el ratón */
+}
+
+.header__heading a, 
+.header__heading a:hover, 
+.header__heading a:active, 
+.header__heading a:focus, 
+.header__heading img:hover, 
+.header__heading img:active, 
+.header__heading img:focus {
+    text-decoration: none !important; /* Remueve el subrayado del enlace */
+    cursor: default !important; /* Cambia el cursor a default */
+    /* Aquí puedes agregar otras propiedades para revertir efectos hover específicos */
+}
+
+    </style>
 
       <!-- HEADER -->
       <header class="header">
@@ -203,7 +223,7 @@ $imagenBTC = isset($imagenesUsuario['imagenbtc']) ? $imagenesUsuario['imagenbtc'
     <!-- LIST -->
     <div class="main__list-heading-wrap">
              <div id="johan" class="modal-bitcoin" >  <!-- OJO -->
-                <div class="image-container" onmouseover="showModal('btcModal')" onmouseout="hideModal('btcModal')">
+                <div class="image-container" style="z-index: 9999 !important;width:400px; border-radius: 20px; background-color:white" onmouseover="showModal('btcModal')" onmouseout="hideModal('btcModal')">
                 <p> <span style="opacity: 0;">Imagen BTC:</span> <img  width="400" src="<?php echo '../' . htmlspecialchars($imagenBTC); ?>" alt="Imagen BTC"></p>
                 </div>
        

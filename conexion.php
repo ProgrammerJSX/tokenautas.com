@@ -1,7 +1,7 @@
 <?php
 
 
-/*
+
 
 
 $host = 'localhost';
@@ -23,10 +23,9 @@ try {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-*/
 
 
-
+/*
 
 
 $host = 'localhost';
@@ -50,7 +49,7 @@ try {
 
 
 
-
+*/
 
 
 

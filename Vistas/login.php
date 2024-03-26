@@ -52,6 +52,7 @@ if (isset($_SESSION['usuario_logueado']) && $_SESSION['usuario_logueado'] === tr
     <!--=============== CSS ===============-->
  
     <title>Inicio de sesion Tokenautas</title>
+    <link rel="icon" href="../cohete06.png" type="image/png">
 </head>
 <body>
     <div class="container" style="transform: scale(0.8);">

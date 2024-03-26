@@ -95,9 +95,6 @@ a:focus {
   left: 0px;
 }
 
-.header__heading>a:hover {
-  background: hsl(220, 80%, 64%);
-}
 
 .header__search {
   flex-grow: 1;

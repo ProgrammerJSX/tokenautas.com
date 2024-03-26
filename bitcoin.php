@@ -24,6 +24,7 @@ $imagesData = require __DIR__ . '/walletData.php';
 <head>
     <meta charset="UTF-8">
     <title>Información Bitcoin</title>
+    <link rel="icon" href="../cohete06.png" type="image/png">
 </head>
 <body>
 <div id="imagenes">

@@ -11,7 +11,8 @@
 
     <!--=============== CSS ===============-->
  
-    <title>Inicio de sesion Tokenautas</title>
+    <title>Registro en Tokenautas</title>
+    <link rel="icon" href="../cohete06.png" type="image/png">
 </head>
 <body>
     <div class="container" style="transform: scale(0.8);">

@@ -100,7 +100,8 @@ $htmlBancos = mostrarBancosUsuario($pdo, $userId);
     <link rel="stylesheet" href="./AssetsVistaC/css/header.css">
     <link rel="stylesheet" href="./AssetsVistaC/css/cardsxxx2025.css">
 
-    <title>Proyecto 01</title>
+    <title>Tokenautas BTC</title>
+    <link rel="icon" href="../cohete06.png" type="image/png">
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/b036b95ef5.js" crossorigin="anonymous"></script>
     <!--FONT AWESOME-->
@@ -235,7 +236,7 @@ $imagenBTC = isset($imagenesUsuario['imagenbtc']) ? $imagenesUsuario['imagenbtc'
 <!-- LIST -->
 <div class="main__list-heading-wrap">
          <div id="johan" class="modal-bitcoin" >  <!-- OJO -->
-            <div class="image-container" onmouseover="showModal('btcModal')" onmouseout="hideModal('btcModal')">
+            <div class="image-container" style="z-index: 9999 !important; background-color:white" onmouseover="showModal('btcModal')" onmouseout="hideModal('btcModal')">
             <p> <span style="opacity: 0;">Imagen BTC:</span> <img  width="400" src="<?php echo '../' . htmlspecialchars($imagenBTC); ?>" alt="Imagen BTC"></p>
             </div>
    

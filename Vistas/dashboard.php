@@ -90,6 +90,7 @@ if ($isMobile) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tokenautas</title>
+    <link rel="icon" href="../cohete06.png" type="image/png">
     <link rel="stylesheet" href="./style.css">
   </head>
 
@@ -97,9 +98,29 @@ if ($isMobile) {
 
     <div class="dash">
 
+    <style>
+      .header__heading, 
+.header__heading * { /* Selecciona el h1 y cualquier elemento dentro de él */
+    pointer-events: none !important; /* Impide cualquier interacción con el ratón */
+}
+
+.header__heading a, 
+.header__heading a:hover, 
+.header__heading a:active, 
+.header__heading a:focus, 
+.header__heading img:hover, 
+.header__heading img:active, 
+.header__heading img:focus {
+    text-decoration: none !important; /* Remueve el subrayado del enlace */
+    cursor: default !important; /* Cambia el cursor a default */
+    /* Aquí puedes agregar otras propiedades para revertir efectos hover específicos */
+}
+
+    </style>
+
       <!-- HEADER -->
       <header class="header">
-        <h1 class="header__heading"><a href="#" target="_blank" rel="noreferrer noopener"><img src="./logos/tokenautasBlanco-02.png" width="40" alt=""></a></h1>
+        <h1 class="header__heading"><a href="#"  target="_blank" rel="noreferrer noopener"><img src="./logos/tokenautasBlanco-02.png" width="40" alt=""></a></h1>
         <div class="header__search">
           <div class="header__search-icon" style="opacity: 0;">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

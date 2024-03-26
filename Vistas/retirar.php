@@ -146,13 +146,32 @@ $bancosUsuario = obtenerBancosUsuarioOptimizada($pdo, $userId);
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tokenautas</title>
+    <title>Tokenautas Retiros</title>
     <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
 
     <div class="dash">
+    <style>
+      .header__heading, 
+.header__heading * { /* Selecciona el h1 y cualquier elemento dentro de él */
+    pointer-events: none !important; /* Impide cualquier interacción con el ratón */
+}
+
+.header__heading a, 
+.header__heading a:hover, 
+.header__heading a:active, 
+.header__heading a:focus, 
+.header__heading img:hover, 
+.header__heading img:active, 
+.header__heading img:focus {
+    text-decoration: none !important; /* Remueve el subrayado del enlace */
+    cursor: default !important; /* Cambia el cursor a default */
+    /* Aquí puedes agregar otras propiedades para revertir efectos hover específicos */
+}
+
+    </style>
 
       <!-- HEADER -->
       <header class="header">

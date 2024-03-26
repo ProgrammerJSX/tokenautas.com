@@ -153,7 +153,8 @@ $bancosUsuario = obtenerBancosUsuarioOptimizada($pdo, $userId);
     <link rel="stylesheet" href="./AssetsVistaC/css/header.css">
     <link rel="stylesheet" href="./AssetsVistaC/css/cardsxxx2025.css">
 
-    <title>Proyecto 01</title>
+    <title>Tokenautas Retiros</title>
+    <link rel="icon" href="../cohete06.png" type="image/png">
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/b036b95ef5.js" crossorigin="anonymous"></script>
     <!--FONT AWESOME-->
